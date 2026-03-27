@@ -8,7 +8,7 @@ Built as a portfolio piece and reusable template for future client work.
 
 ## Live Preview
 
-> Replace this section with your Vercel deployment URL once deployed.
+>  Vercel deployment URL once deployed.
 
 ---
 
@@ -258,4 +258,4 @@ This project is open source and available for personal and commercial use.
 
 ## Author
 
-Built by [Your Name] as a portfolio project.
+Built by Nikola Glavonjic as a portfolio project.
