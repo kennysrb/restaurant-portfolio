@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { MenuCard } from "@/components/ui/MenuCard";
 import { DishModal } from "@/components/ui/DishModal";
+import { FullMenuModal } from "@/components/ui/FullMenuModal";
 import { menuItems } from "@/lib/data";
 import { MenuItem } from "@/types";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
@@ -19,6 +20,7 @@ export function Menu() {
   const [page, setPage] = useState(0);
   const [mobileExpanded, setMobileExpanded] = useState(false);
   const [selectedDish, setSelectedDish] = useState<MenuItem | null>(null);
+  const [fullMenuOpen, setFullMenuOpen] = useState(false);
 
   const totalPages = Math.ceil(menuItems.length / ITEMS_PER_PAGE);
   const currentItems = menuItems.slice(
@@ -41,9 +43,22 @@ export function Menu() {
         <p className="text-[var(--accent)] text-sm uppercase tracking-[0.3em] mb-3">
           Our Selection
         </p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">
           The Menu
         </h2>
+        <button
+          onClick={() => setFullMenuOpen(true)}
+          className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-300 cursor-pointer group"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:scale-110 transition-transform duration-300">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+          View Full Menu
+        </button>
       </div>
 
       {/* === Mobile: vertical list with "Show More" === */}
@@ -97,7 +112,7 @@ export function Menu() {
             <button
               onClick={goToPrev}
               disabled={page === 0}
-              className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Previous menu page"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -127,7 +142,7 @@ export function Menu() {
             <button
               onClick={goToNext}
               disabled={page === totalPages - 1}
-              className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Next menu page"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -157,6 +172,7 @@ export function Menu() {
       </div>
 
       <DishModal item={selectedDish} onClose={closeModal} />
+      <FullMenuModal isOpen={fullMenuOpen} onClose={() => setFullMenuOpen(false)} />
     </SectionWrapper>
   );
 }
