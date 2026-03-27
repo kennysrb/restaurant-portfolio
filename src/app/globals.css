@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-gold: #d4a853;
+  --color-gold-light: #e6be6a;
+  --color-gold-dark: #b8912e;
+  --color-surface: #1a1a1a;
+  --color-surface-light: #2a2a2a;
+  --color-surface-dark: #0f0f0f;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a3a3a3;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Dark mode (default) */
+.dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-accent: #0f0f0f;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --accent: #d4a853;
+  --accent-hover: #e6be6a;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode */
+.light {
+  --bg-primary: #faf9f6;
+  --bg-secondary: #ffffff;
+  --bg-accent: #f0ede6;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --accent: #b8912e;
+  --accent-hover: #d4a853;
+  --border: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth theme transition for all themed elements */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Exclude transitions that conflict with Framer Motion */
+[data-framer-component],
+.framer-motion * {
+  transition: none;
+}
+
+/* Date/time input styling for dark mode */
+.dark input[type="date"]::-webkit-calendar-picker-indicator,
+.dark input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
