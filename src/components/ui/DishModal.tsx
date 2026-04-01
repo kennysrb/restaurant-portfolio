@@ -65,7 +65,7 @@ export function DishModal({ item, onClose }: DishModalProps) {
 
             {/* Image */}
             <div className="relative aspect-[16/10] w-full">
-              {item.badge && <Badge type={item.badge} />}
+              {item.badge && <Badge type={item.badge} position="top-left" />}
               <Image
                 src={item.image}
                 alt={item.name}
