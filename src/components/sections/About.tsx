@@ -14,7 +14,10 @@ export function About() {
 
   return (
     <SectionWrapper id="about">
-      <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div
+        ref={ref}
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
+      >
         {/* Image */}
         <motion.div
           className="relative aspect-[4/5] rounded-sm overflow-hidden"
