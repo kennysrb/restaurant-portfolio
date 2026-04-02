@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "title": "",
+    "description": "",
+    "ogTitle": "",
+    "ogDescription": "",
+    "ogSiteName": ""
+  },
+  "nav": {
+    "home": "",
+    "menu": "",
+    "about": "",
+    "gallery": "",
+    "reserve": "",
+    "location": "",
+    "ariaLabel": "",
+    "openMenu": "",
+    "closeMenu": "",
+    "logoText": ""
+  },
+  "restaurant": {
+    "name": "",
+    "city": "",
+    "tagline": "",
+    "about": {
+      "p1": "",
+      "p2": "",
+      "p3": ""
+    }
+  },
+  "hero": {
+    "welcomeTo": "",
+    "imageAlt": "",
+    "reserveTable": "",
+    "viewMenu": ""
+  },
+  "menu": {
+    "subtitle": "",
+    "title": "",
+    "viewFullMenu": "",
+    "showAllDishes": "",
+    "showLess": "",
+    "prevPage": "",
+    "nextPage": "",
+    "goToPage": "",
+    "fullMenuImageAlt": "",
+    "closeMenuLabel": "",
+    "items": {
+      "truffleRisotto": {
+        "name": "",
+        "description": ""
+      },
+      "grilledSeaBass": {
+        "name": "",
+        "description": ""
+      },
+      "beefTenderloin": {
+        "name": "",
+        "description": ""
+      },
+      "wildMushroomPasta": {
+        "name": "",
+        "description": ""
+      },
+      "capreseSalad": {
+        "name": "",
+        "description": ""
+      },
+      "tiramisu": {
+        "name": "",
+        "description": ""
+      },
+      "bruschettaTrio": {
+        "name": "",
+        "description": ""
+      },
+      "pannaCotta": {
+        "name": "",
+        "description": ""
+      },
+      "lambRack": {
+        "name": "",
+        "description": ""
+      },
+      "octopusCarpaccio": {
+        "name": "",
+        "description": ""
+      },
+      "lobsterLinguine": {
+        "name": "",
+        "description": ""
+      },
+      "duckConfit": {
+        "name": "",
+        "description": ""
+      },
+      "burrataProciutto": {
+        "name": "",
+        "description": ""
+      },
+      "searedTunaTataki": {
+        "name": "",
+        "description": ""
+      },
+      "gnocchiAlPesto": {
+        "name": "",
+        "description": ""
+      },
+      "chocolateFondant": {
+        "name": "",
+        "description": ""
+      },
+      "slovenianStrudel": {
+        "name": "",
+        "description": ""
+      }
+    }
+  },
+  "about": {
+    "subtitle": "",
+    "title": "",
+    "imageAlt": ""
+  },
+  "gallery": {
+    "subtitle": "",
+    "title": "",
+    "closeGallery": "",
+    "prevImage": "",
+    "nextImage": "",
+    "items": {
+      "interior1": {
+        "alt": ""
+      },
+      "dish1": {
+        "alt": ""
+      },
+      "bar": {
+        "alt": ""
+      },
+      "terrace": {
+        "alt": ""
+      },
+      "dish2": {
+        "alt": ""
+      },
+      "interior2": {
+        "alt": ""
+      },
+      "dish3": {
+        "alt": ""
+      },
+      "wine": {
+        "alt": ""
+      }
+    }
+  },
+  "reservation": {
+    "subtitle": "",
+    "title": "",
+    "fullName": "",
+    "namePlaceholder": "",
+    "nameAriaLabel": "",
+    "phone": "",
+    "phonePlaceholder": "",
+    "phoneAriaLabel": "",
+    "date": "",
+    "dateAriaLabel": "",
+    "time": "",
+    "timeAriaLabel": "",
+    "sending": "",
+    "reserveNow": "",
+    "successToast": "",
+    "errorToast": ""
+  },
+  "location": {
+    "subtitle": "",
+    "title": "",
+    "mapTitle": "",
+    "mapAriaLabel": "",
+    "workingHours": "",
+    "address": "",
+    "contact": "",
+    "closed": "",
+    "days": {
+      "monday": "",
+      "tuesdayFriday": "",
+      "saturday": "",
+      "sunday": ""
+    }
+  },
+  "footer": {
+    "contact": "",
+    "followUs": "",
+    "followInstagram": "",
+    "followFacebook": "",
+    "findTripAdvisor": "",
+    "copyright": ""
+  },
+  "badges": {
+    "chef": "",
+    "special": ""
+  },
+  "ui": {
+    "closeModal": "",
+    "reserveTable": "",
+    "scrollToTop": ""
+  }
+}

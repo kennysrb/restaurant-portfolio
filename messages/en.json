@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "title": "Bistro Central Ljubljana | Modern Restaurant & Fine Dining",
+    "description": "Modern restaurant landing page focused on menu presentation and table reservations. Experience fine dining in the heart of Ljubljana.",
+    "ogTitle": "Bistro Central Ljubljana",
+    "ogDescription": "A modern dining experience in the heart of Ljubljana. Fresh local ingredients, seasonal menus, and an unforgettable atmosphere.",
+    "ogSiteName": "Bistro Central Ljubljana"
+  },
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "gallery": "Gallery",
+    "reserve": "Reserve",
+    "location": "Location",
+    "ariaLabel": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "logoText": "Bistro Central"
+  },
+  "restaurant": {
+    "name": "Bistro Central",
+    "city": "Ljubljana",
+    "tagline": "A modern dining experience in the heart of Ljubljana",
+    "about": {
+      "p1": "Nestled in the vibrant heart of Ljubljana, Bistro Central has been a cornerstone of the city's culinary scene since 2018. Our kitchen combines traditional Slovenian flavors with contemporary European techniques, creating dishes that honor our heritage while embracing innovation.",
+      "p2": "Every ingredient tells a story. We source locally from Slovenian farms and the Adriatic coast, ensuring that each plate reflects the freshness and diversity of our region. Our seasonal menu evolves with nature, offering a new experience with every visit.",
+      "p3": "Whether you're joining us for an intimate dinner, a celebratory gathering, or a casual lunch, our warm atmosphere and attentive service make every moment at Bistro Central truly memorable."
+    }
+  },
+  "hero": {
+    "welcomeTo": "Welcome to",
+    "imageAlt": "Bistro Central restaurant interior",
+    "reserveTable": "Reserve a Table",
+    "viewMenu": "View Menu"
+  },
+  "menu": {
+    "subtitle": "Our Selection",
+    "title": "The Menu",
+    "viewFullMenu": "View Full Menu",
+    "showAllDishes": "Show All {count} Dishes",
+    "showLess": "Show Less",
+    "prevPage": "Previous menu page",
+    "nextPage": "Next menu page",
+    "goToPage": "Go to menu page {page}",
+    "fullMenuImageAlt": "Bistro Central full menu",
+    "closeMenuLabel": "Close menu",
+    "items": {
+      "truffleRisotto": {
+        "name": "Truffle Risotto",
+        "description": "Creamy Arborio rice with black truffle, aged Parmesan, and a drizzle of truffle oil."
+      },
+      "grilledSeaBass": {
+        "name": "Grilled Sea Bass",
+        "description": "Fresh Adriatic sea bass with roasted vegetables, capers, and lemon butter sauce."
+      },
+      "beefTenderloin": {
+        "name": "Beef Tenderloin",
+        "description": "Premium beef tenderloin with red wine reduction, roasted potatoes, and seasonal greens."
+      },
+      "wildMushroomPasta": {
+        "name": "Wild Mushroom Pasta",
+        "description": "Handmade tagliatelle with a medley of wild mushrooms, garlic, and fresh herbs."
+      },
+      "capreseSalad": {
+        "name": "Caprese Salad",
+        "description": "Heirloom tomatoes, fresh buffalo mozzarella, basil, and aged balsamic glaze."
+      },
+      "tiramisu": {
+        "name": "Tiramisu",
+        "description": "Classic Italian dessert with espresso-soaked ladyfingers, mascarpone cream, and cocoa."
+      },
+      "bruschettaTrio": {
+        "name": "Bruschetta Trio",
+        "description": "Three artisan bruschettas: tomato & basil, ricotta & honey, and olive tapenade."
+      },
+      "pannaCotta": {
+        "name": "Panna Cotta",
+        "description": "Silky vanilla panna cotta with seasonal berry compote and mint."
+      },
+      "lambRack": {
+        "name": "Lamb Rack",
+        "description": "Herb-crusted rack of lamb with rosemary jus, gratin dauphinois, and roasted baby carrots."
+      },
+      "octopusCarpaccio": {
+        "name": "Octopus Carpaccio",
+        "description": "Thinly sliced Adriatic octopus with citrus vinaigrette, capers, and microgreens."
+      },
+      "lobsterLinguine": {
+        "name": "Lobster Linguine",
+        "description": "Fresh linguine tossed with lobster tail, cherry tomatoes, garlic, and white wine sauce."
+      },
+      "duckConfit": {
+        "name": "Duck Confit",
+        "description": "Slow-cooked duck leg with crispy skin, served with lentils du Puy and orange glaze."
+      },
+      "burrataProciutto": {
+        "name": "Burrata & Prosciutto",
+        "description": "Creamy burrata cheese with San Daniele prosciutto, arugula, and aged balsamic."
+      },
+      "searedTunaTataki": {
+        "name": "Seared Tuna Tataki",
+        "description": "Lightly seared yellowfin tuna with sesame crust, ponzu sauce, and pickled ginger."
+      },
+      "gnocchiAlPesto": {
+        "name": "Gnocchi al Pesto",
+        "description": "Pillowy potato gnocchi with homemade basil pesto, pine nuts, and Pecorino Romano."
+      },
+      "chocolateFondant": {
+        "name": "Chocolate Fondant",
+        "description": "Warm dark chocolate fondant with a molten center, served with vanilla ice cream."
+      },
+      "slovenianStrudel": {
+        "name": "Slovenian Strudel",
+        "description": "Traditional apple strudel with cinnamon, raisins, and a dusting of powdered sugar."
+      }
+    }
+  },
+  "about": {
+    "subtitle": "Our Story",
+    "title": "About Us",
+    "imageAlt": "Inside Bistro Central Ljubljana"
+  },
+  "gallery": {
+    "subtitle": "Visual Experience",
+    "title": "Gallery",
+    "closeGallery": "Close gallery",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "items": {
+      "interior1": { "alt": "Restaurant interior with warm lighting" },
+      "dish1": { "alt": "Beautifully plated main course" },
+      "bar": { "alt": "Elegant bar area" },
+      "terrace": { "alt": "Outdoor terrace seating" },
+      "dish2": { "alt": "Chef preparing a signature dish" },
+      "interior2": { "alt": "Private dining area" },
+      "dish3": { "alt": "Fresh dessert selection" },
+      "wine": { "alt": "Curated wine collection" }
+    }
+  },
+  "reservation": {
+    "subtitle": "Book Your Experience",
+    "title": "Reserve a Table",
+    "fullName": "Full Name",
+    "namePlaceholder": "John Doe",
+    "nameAriaLabel": "Your full name",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+386 1 234 5678",
+    "phoneAriaLabel": "Your phone number",
+    "date": "Date",
+    "dateAriaLabel": "Reservation date",
+    "time": "Time",
+    "timeAriaLabel": "Reservation time",
+    "sending": "Sending...",
+    "reserveNow": "Reserve Now",
+    "successToast": "Reservation request sent! We'll confirm shortly.",
+    "errorToast": "Network error. Please try again."
+  },
+  "location": {
+    "subtitle": "Find Us",
+    "title": "Location & Hours",
+    "mapTitle": "Bistro Central location on Google Maps",
+    "mapAriaLabel": "Map showing Bistro Central restaurant location",
+    "workingHours": "Working Hours",
+    "address": "Address",
+    "contact": "Contact",
+    "closed": "Closed",
+    "days": {
+      "monday": "Monday",
+      "tuesdayFriday": "Tuesday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  },
+  "footer": {
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "followInstagram": "Follow us on Instagram",
+    "followFacebook": "Follow us on Facebook",
+    "findTripAdvisor": "Find us on TripAdvisor",
+    "copyright": "© {year} {name} {city}. All rights reserved."
+  },
+  "badges": {
+    "chef": "Chef's Pick",
+    "special": "Special"
+  },
+  "ui": {
+    "closeModal": "Close modal",
+    "reserveTable": "Reserve a Table",
+    "scrollToTop": "Scroll to top"
+  }
+}

@@ -3,10 +3,11 @@ import { GalleryItem } from "@/types";
 
 interface GalleryImageProps {
   item: GalleryItem;
+  alt: string;
   onClick: () => void;
 }
 
-export function GalleryImage({ item, onClick }: GalleryImageProps) {
+export function GalleryImage({ item, alt, onClick }: GalleryImageProps) {
   return (
     <button
       type="button"
@@ -15,7 +16,7 @@ export function GalleryImage({ item, onClick }: GalleryImageProps) {
     >
       <Image
         src={item.src}
-        alt={item.alt}
+        alt={alt}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-110"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

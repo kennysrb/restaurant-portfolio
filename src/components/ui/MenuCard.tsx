@@ -4,10 +4,12 @@ import { MenuItem } from "@/types";
 
 interface MenuCardProps {
   item: MenuItem;
+  name: string;
+  description: string;
   onClick: () => void;
 }
 
-export function MenuCard({ item, onClick }: MenuCardProps) {
+export function MenuCard({ item, name, description, onClick }: MenuCardProps) {
   return (
     <button
       type="button"
@@ -19,7 +21,7 @@ export function MenuCard({ item, onClick }: MenuCardProps) {
       <div className="relative aspect-[4/3] overflow-hidden w-full shrink-0">
         <Image
           src={item.image}
-          alt={item.name}
+          alt={name}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -29,14 +31,14 @@ export function MenuCard({ item, onClick }: MenuCardProps) {
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-2">
           <h3 className="font-heading text-lg font-semibold text-[var(--text-primary)]">
-            {item.name}
+            {name}
           </h3>
           <span className="text-[var(--accent)] font-semibold text-lg shrink-0">
             &euro;{item.price}
           </span>
         </div>
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-2">
-          {item.description}
+          {description}
         </p>
       </div>
     </button>

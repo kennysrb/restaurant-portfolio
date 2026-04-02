@@ -1,25 +1,16 @@
 export interface MenuItem {
-  id: number;
-  name: string;
-  description: string;
+  id: string;
   price: number;
   image: string;
   badge?: "chef" | "special";
 }
 
 export interface GalleryItem {
-  id: number;
+  id: string;
   src: string;
-  alt: string;
 }
 
 export interface WorkingHours {
-  day: string;
-  hours: string;
-}
-
-export interface SocialLink {
-  name: string;
-  href: string;
-  icon: string;
+  id: string;
+  hours: string | null;
 }

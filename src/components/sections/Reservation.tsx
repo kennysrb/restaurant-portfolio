@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { Button } from "@/components/ui/Button";
 import { Toast } from "@/components/ui/Toast";
 
 export function Reservation() {
+  const t = useTranslations("reservation");
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -31,14 +33,14 @@ export function Reservation() {
       });
 
       if (res.ok) {
-        setToastMessage("Reservation request sent! We'll confirm shortly.");
+        setToastMessage(t("successToast"));
         form.reset();
       } else {
         const err = await res.json();
-        setToastMessage(err.error || "Something went wrong. Please try again.");
+        setToastMessage(err.error || t("errorToast"));
       }
     } catch {
-      setToastMessage("Network error. Please try again.");
+      setToastMessage(t("errorToast"));
     }
 
     setToastVisible(true);
@@ -55,10 +57,10 @@ export function Reservation() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <p className="text-[var(--accent)] text-sm uppercase tracking-[0.3em] mb-3">
-            Book Your Experience
+            {t("subtitle")}
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
-            Reserve a Table
+            {t("title")}
           </h2>
         </div>
 
@@ -66,30 +68,30 @@ export function Reservation() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
-                Full Name
+                {t("fullName")}
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
-                placeholder="John Doe"
+                placeholder={t("namePlaceholder")}
                 className={inputClasses}
-                aria-label="Your full name"
+                aria-label={t("nameAriaLabel")}
               />
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
-                Phone Number
+                {t("phone")}
               </label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 required
-                placeholder="+386 1 234 5678"
+                placeholder={t("phonePlaceholder")}
                 className={inputClasses}
-                aria-label="Your phone number"
+                aria-label={t("phoneAriaLabel")}
               />
             </div>
           </div>
@@ -97,7 +99,7 @@ export function Reservation() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="date" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
-                Date
+                {t("date")}
               </label>
               <input
                 type="date"
@@ -105,12 +107,12 @@ export function Reservation() {
                 name="date"
                 required
                 className={inputClasses}
-                aria-label="Reservation date"
+                aria-label={t("dateAriaLabel")}
               />
             </div>
             <div>
               <label htmlFor="time" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
-                Time
+                {t("time")}
               </label>
               <input
                 type="time"
@@ -118,14 +120,14 @@ export function Reservation() {
                 name="time"
                 required
                 className={inputClasses}
-                aria-label="Reservation time"
+                aria-label={t("timeAriaLabel")}
               />
             </div>
           </div>
 
           <div className="pt-4">
             <Button type="submit" variant="primary" className="w-full">
-              {submitting ? "Sending..." : "Reserve Now"}
+              {submitting ? t("sending") : t("reserveNow")}
             </Button>
           </div>
         </form>

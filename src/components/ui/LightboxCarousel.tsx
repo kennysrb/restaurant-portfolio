@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useCallback, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const slideVariants = {
   initial: (d: number) => ({ opacity: 0, x: d * 50 }),
@@ -13,6 +14,7 @@ import { GalleryItem } from "@/types";
 
 interface LightboxCarouselProps {
   items: GalleryItem[];
+  alts: string[];
   currentIndex: number | null;
   onClose: () => void;
   onPrev: () => void;
@@ -21,11 +23,13 @@ interface LightboxCarouselProps {
 
 export function LightboxCarousel({
   items,
+  alts,
   currentIndex,
   onClose,
   onPrev,
   onNext,
 }: LightboxCarouselProps) {
+  const t = useTranslations("gallery");
   const touchStartX = useRef<number | null>(null);
   const [direction, setDirection] = useState<1 | -1>(1);
 
@@ -68,6 +72,7 @@ export function LightboxCarousel({
 
   const isOpen = currentIndex !== null;
   const item = isOpen ? items[currentIndex] : null;
+  const alt = isOpen ? alts[currentIndex] : "";
 
   return (
     <AnimatePresence>
@@ -88,7 +93,7 @@ export function LightboxCarousel({
           <button
             onClick={(e) => { e.stopPropagation(); onClose(); }}
             className="absolute top-4 right-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-            aria-label="Close gallery"
+            aria-label={t("closeGallery")}
           >
             <svg
               width="24"
@@ -110,7 +115,7 @@ export function LightboxCarousel({
             onClick={(e) => { e.stopPropagation(); goPrev(); }}
             disabled={currentIndex === 0}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
-            aria-label="Previous image"
+            aria-label={t("prevImage")}
           >
             <svg
               width="24"
@@ -140,7 +145,7 @@ export function LightboxCarousel({
             >
               <Image
                 src={item.src}
-                alt={item.alt}
+                alt={alt}
                 fill
                 className="object-contain"
                 sizes="90vw"
@@ -154,7 +159,7 @@ export function LightboxCarousel({
             onClick={(e) => { e.stopPropagation(); goNext(); }}
             disabled={currentIndex === items.length - 1}
             className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
-            aria-label="Next image"
+            aria-label={t("nextImage")}
           >
             <svg
               width="24"

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface FullMenuModalProps {
   isOpen: boolean;
@@ -10,6 +11,8 @@ interface FullMenuModalProps {
 }
 
 export function FullMenuModal({ isOpen, onClose }: FullMenuModalProps) {
+  const t = useTranslations("menu");
+
   useEffect(() => {
     if (!isOpen) return;
     document.body.style.overflow = "hidden";
@@ -50,7 +53,7 @@ export function FullMenuModal({ isOpen, onClose }: FullMenuModalProps) {
             <button
               onClick={onClose}
               className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors cursor-pointer"
-              aria-label="Close menu"
+              aria-label={t("closeMenuLabel")}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -62,7 +65,7 @@ export function FullMenuModal({ isOpen, onClose }: FullMenuModalProps) {
             <div className="relative w-full">
               <Image
                 src="/images/menu/menu.png"
-                alt="Bistro Central full menu"
+                alt={t("fullMenuImageAlt")}
                 width={800}
                 height={1200}
                 className="w-full h-auto"

@@ -1,15 +1,18 @@
+import { getTranslations } from "next-intl/server";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { restaurantInfo, workingHours } from "@/lib/data";
 
-export function Location() {
+export async function Location() {
+  const t = await getTranslations();
+
   return (
     <SectionWrapper id="location" dark>
       <div className="text-center mb-12">
         <p className="text-[var(--accent)] text-sm uppercase tracking-[0.3em] mb-3">
-          Find Us
+          {t("location.subtitle")}
         </p>
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
-          Location & Hours
+          {t("location.title")}
         </h2>
       </div>
 
@@ -24,8 +27,8 @@ export function Location() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Bistro Central location on Google Maps"
-            aria-label="Map showing Bistro Central restaurant location"
+            title={t("location.mapTitle")}
+            aria-label={t("location.mapAriaLabel")}
           />
         </div>
 
@@ -33,25 +36,25 @@ export function Location() {
         <div className="flex flex-col justify-center">
           <div className="mb-8">
             <h3 className="font-heading text-xl font-semibold text-[var(--text-primary)] mb-4">
-              Working Hours
+              {t("location.workingHours")}
             </h3>
             <div className="space-y-3">
               {workingHours.map((wh) => (
                 <div
-                  key={wh.day}
+                  key={wh.id}
                   className="flex justify-between text-sm border-b border-[var(--border)] pb-3"
                 >
                   <span className="text-[var(--text-primary)] font-medium">
-                    {wh.day}
+                    {t(`location.days.${wh.id}` as "location.days.monday")}
                   </span>
                   <span
                     className={
-                      wh.hours === "Closed"
+                      wh.hours === null
                         ? "text-red-400"
                         : "text-[var(--text-secondary)]"
                     }
                   >
-                    {wh.hours}
+                    {wh.hours ?? t("location.closed")}
                   </span>
                 </div>
               ))}
@@ -60,7 +63,7 @@ export function Location() {
 
           <div className="mb-8">
             <h3 className="font-heading text-xl font-semibold text-[var(--text-primary)] mb-4">
-              Address
+              {t("location.address")}
             </h3>
             <p className="text-[var(--text-secondary)] text-sm">
               {restaurantInfo.address}
@@ -69,7 +72,7 @@ export function Location() {
 
           <div>
             <h3 className="font-heading text-xl font-semibold text-[var(--text-primary)] mb-4">
-              Contact
+              {t("location.contact")}
             </h3>
             <div className="space-y-2 text-sm">
               <p>

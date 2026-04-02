@@ -1,18 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
-const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "Menu", href: "#menu" },
-  { label: "About", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Reserve", href: "#reservation" },
-  { label: "Location", href: "#location" },
-];
+const navLinkKeys = [
+  { key: "home", href: "#hero" },
+  { key: "menu", href: "#menu" },
+  { key: "about", href: "#about" },
+  { key: "gallery", href: "#gallery" },
+  { key: "reserve", href: "#reservation" },
+  { key: "location", href: "#location" },
+] as const;
 
 export function Navbar() {
+  const t = useTranslations("nav");
+  const locale = useLocale();
+  const pathname = usePathname();
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -24,7 +30,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+    const sectionIds = navLinkKeys.map((l) => l.href.replace("#", ""));
     const observers: IntersectionObserver[] = [];
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
@@ -50,7 +56,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Header — scroll-based bg only, no mobileOpen bg change to avoid flash */}
       <header
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
           scrolled
@@ -60,7 +65,7 @@ export function Navbar() {
       >
         <nav
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20"
-          aria-label="Main navigation"
+          aria-label={t("ariaLabel")}
         >
           {/* Logo */}
           <a
@@ -68,12 +73,12 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="font-heading text-xl md:text-2xl font-bold text-[var(--accent)] tracking-wide"
           >
-            Bistro Central
+            {t("logoText")}
           </a>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
+            {navLinkKeys.map((link) => {
               const id = link.href.replace("#", "");
               return (
                 <a
@@ -85,21 +90,46 @@ export function Navbar() {
                       : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
                   }`}
                 >
-                  {link.label}
+                  {t(link.key)}
                 </a>
               );
             })}
             <ThemeToggle />
+            {/* Locale switcher */}
+            <div className="flex items-center gap-1 text-xs uppercase tracking-wider">
+              <Link
+                href={pathname}
+                locale="en"
+                className={`transition-colors duration-300 ${
+                  locale === "en"
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
+                }`}
+              >
+                EN
+              </Link>
+              <span className="text-[var(--border)]">|</span>
+              <Link
+                href={pathname}
+                locale="sl"
+                className={`transition-colors duration-300 ${
+                  locale === "sl"
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
+                }`}
+              >
+                SL
+              </Link>
+            </div>
           </div>
 
           {/* Mobile controls */}
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
-            {/* Hamburger → X: all bars absolutely centered, translate out to form lines */}
             <button
               onClick={() => setMobileOpen((v) => !v)}
               className="relative w-10 h-10"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={mobileOpen}
             >
               <span
@@ -126,7 +156,7 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Full-screen overlay — seamless behind transparent header */}
+      {/* Full-screen overlay */}
       <div
         className={`fixed inset-0 z-[55] md:hidden bg-[var(--bg-secondary)]/97 backdrop-blur-md transition-transform duration-500 ease-in-out origin-top ${
           mobileOpen
@@ -136,7 +166,7 @@ export function Navbar() {
         aria-hidden={!mobileOpen}
       >
         <div className="flex flex-col px-8 pt-20">
-          {navLinks.map((link, i) => {
+          {navLinkKeys.map((link, i) => {
             const id = link.href.replace("#", "");
             const isActive = activeSection === id;
             return (
@@ -164,10 +194,10 @@ export function Navbar() {
                         : "text-[var(--text-primary)] group-hover:text-[var(--accent)]"
                     }`}
                   >
-                    {link.label}
+                    {t(link.key)}
                   </span>
                 </a>
-                {i < navLinks.length - 1 && (
+                {i < navLinkKeys.length - 1 && (
                   <div
                     className="h-px bg-[var(--accent)]/20"
                     style={{
@@ -181,6 +211,43 @@ export function Navbar() {
               </div>
             );
           })}
+
+          {/* Mobile locale switcher */}
+          <div
+            className="flex items-center gap-3 py-4 mt-2"
+            style={{
+              opacity: mobileOpen ? 1 : 0,
+              transitionDelay: mobileOpen ? `${180 + navLinkKeys.length * 70}ms` : "0ms",
+              transitionProperty: "opacity",
+              transitionDuration: "300ms",
+            }}
+          >
+            <Link
+              href={pathname}
+              locale="en"
+              onClick={() => setMobileOpen(false)}
+              className={`font-heading text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
+                locale === "en"
+                  ? "text-[var(--accent)]"
+                  : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
+              }`}
+            >
+              EN
+            </Link>
+            <span className="text-[var(--border)]">|</span>
+            <Link
+              href={pathname}
+              locale="sl"
+              onClick={() => setMobileOpen(false)}
+              className={`font-heading text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
+                locale === "sl"
+                  ? "text-[var(--accent)]"
+                  : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
+              }`}
+            >
+              SL
+            </Link>
+          </div>
         </div>
       </div>
     </>
