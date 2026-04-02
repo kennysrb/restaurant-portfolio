@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { cn } from "@/lib/utils";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 const navLinkKeys = [
   { key: "home", href: "#hero" },
@@ -19,15 +21,11 @@ export function Navbar() {
   const locale = useLocale();
   const pathname = usePathname();
 
-  const [scrolled, setScrolled] = useState(false);
+  const scrollY = useScrollPosition();
+  const scrolled = scrollY > 50;
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const sectionIds = navLinkKeys.map((l) => l.href.replace("#", ""));
@@ -57,11 +55,12 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
+        className={cn(
+          "fixed top-0 left-0 right-0 z-[60] transition-all duration-300",
           scrolled
             ? "bg-[var(--bg-secondary)]/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
+            : "bg-transparent",
+        )}
       >
         <nav
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20"
@@ -78,33 +77,36 @@ export function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
+            {/* NOTE: desktop NavLink pattern duplicated below in mobile nav — could be extracted to components/ui/NavLink.tsx if reused elsewhere */}
             {navLinkKeys.map((link) => {
               const id = link.href.replace("#", "");
               return (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-sm uppercase tracking-wider transition-colors duration-300 ${
+                  className={cn(
+                    "text-sm uppercase tracking-wider transition-colors duration-300",
                     activeSection === id
                       ? "text-[var(--accent)]"
-                      : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
-                  }`}
+                      : "text-[var(--text-secondary)] hover:text-[var(--accent)]",
+                  )}
                 >
                   {t(link.key)}
                 </a>
               );
             })}
             <ThemeToggle />
-            {/* Locale switcher */}
+            {/* NOTE: LocaleSwitcher pattern duplicated below in mobile nav — could be extracted to components/ui/LocaleSwitcher.tsx if reused elsewhere */}
             <div className="flex items-center gap-1 text-xs uppercase tracking-wider">
               <Link
                 href={pathname}
                 locale="en"
-                className={`transition-colors duration-300 ${
+                className={cn(
+                  "transition-colors duration-300",
                   locale === "en"
                     ? "text-[var(--accent)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
-                }`}
+                    : "text-[var(--text-secondary)] hover:text-[var(--accent)]",
+                )}
               >
                 EN
               </Link>
@@ -112,11 +114,12 @@ export function Navbar() {
               <Link
                 href={pathname}
                 locale="sl"
-                className={`transition-colors duration-300 ${
+                className={cn(
+                  "transition-colors duration-300",
                   locale === "sl"
                     ? "text-[var(--accent)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
-                }`}
+                    : "text-[var(--text-secondary)] hover:text-[var(--accent)]",
+                )}
               >
                 SL
               </Link>
@@ -133,23 +136,22 @@ export function Navbar() {
               aria-expanded={mobileOpen}
             >
               <span
-                className={`absolute left-1/2 top-1/2 block h-[2px] w-6 -translate-x-1/2 bg-[var(--text-primary)] transition-all duration-300 ease-in-out origin-center ${
-                  mobileOpen
-                    ? "-translate-y-1/2 rotate-45"
-                    : "-translate-y-[7px]"
-                }`}
+                className={cn(
+                  "absolute left-1/2 top-1/2 block h-[2px] w-6 -translate-x-1/2 bg-[var(--text-primary)] transition-all duration-300 ease-in-out origin-center",
+                  mobileOpen ? "-translate-y-1/2 rotate-45" : "-translate-y-[7px]",
+                )}
               />
               <span
-                className={`absolute left-1/2 top-1/2 block h-[2px] w-6 -translate-x-1/2 -translate-y-1/2 bg-[var(--text-primary)] transition-all duration-300 ease-in-out origin-center ${
-                  mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
-                }`}
+                className={cn(
+                  "absolute left-1/2 top-1/2 block h-[2px] w-6 -translate-x-1/2 -translate-y-1/2 bg-[var(--text-primary)] transition-all duration-300 ease-in-out origin-center",
+                  mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100",
+                )}
               />
               <span
-                className={`absolute left-1/2 top-1/2 block h-[2px] w-6 -translate-x-1/2 bg-[var(--text-primary)] transition-all duration-300 ease-in-out origin-center ${
-                  mobileOpen
-                    ? "-translate-y-1/2 -rotate-45"
-                    : "translate-y-[5px]"
-                }`}
+                className={cn(
+                  "absolute left-1/2 top-1/2 block h-[2px] w-6 -translate-x-1/2 bg-[var(--text-primary)] transition-all duration-300 ease-in-out origin-center",
+                  mobileOpen ? "-translate-y-1/2 -rotate-45" : "translate-y-[5px]",
+                )}
               />
             </button>
           </div>
@@ -158,14 +160,16 @@ export function Navbar() {
 
       {/* Full-screen overlay */}
       <div
-        className={`fixed inset-0 z-[55] md:hidden bg-[var(--bg-secondary)]/97 backdrop-blur-md transition-transform duration-500 ease-in-out origin-top ${
+        className={cn(
+          "fixed inset-0 z-[55] md:hidden bg-[var(--bg-secondary)]/97 backdrop-blur-md transition-transform duration-500 ease-in-out origin-top",
           mobileOpen
             ? "scale-y-100 pointer-events-auto"
-            : "scale-y-0 pointer-events-none"
-        }`}
+            : "scale-y-0 pointer-events-none",
+        )}
         aria-hidden={!mobileOpen}
       >
         <div className="flex flex-col px-8 pt-20">
+          {/* NOTE: mobile NavLink pattern mirrors desktop nav above */}
           {navLinkKeys.map((link, i) => {
             const id = link.href.replace("#", "");
             const isActive = activeSection === id;
@@ -188,11 +192,12 @@ export function Navbar() {
                   }}
                 >
                   <span
-                    className={`font-heading text-xl font-bold uppercase tracking-widest transition-all duration-300 group-hover:translate-x-1 ${
+                    className={cn(
+                      "font-heading text-xl font-bold uppercase tracking-widest transition-all duration-300 group-hover:translate-x-1",
                       isActive
                         ? "text-[var(--accent)]"
-                        : "text-[var(--text-primary)] group-hover:text-[var(--accent)]"
-                    }`}
+                        : "text-[var(--text-primary)] group-hover:text-[var(--accent)]",
+                    )}
                   >
                     {t(link.key)}
                   </span>
@@ -212,7 +217,7 @@ export function Navbar() {
             );
           })}
 
-          {/* Mobile locale switcher */}
+          {/* Mobile locale switcher — NOTE: mirrors desktop locale switcher above */}
           <div
             className="flex items-center gap-3 py-4 mt-2"
             style={{
@@ -226,11 +231,12 @@ export function Navbar() {
               href={pathname}
               locale="en"
               onClick={() => setMobileOpen(false)}
-              className={`font-heading text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
+              className={cn(
+                "font-heading text-sm font-bold uppercase tracking-widest transition-colors duration-300",
                 locale === "en"
                   ? "text-[var(--accent)]"
-                  : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
-              }`}
+                  : "text-[var(--text-secondary)] hover:text-[var(--accent)]",
+              )}
             >
               EN
             </Link>
@@ -239,11 +245,12 @@ export function Navbar() {
               href={pathname}
               locale="sl"
               onClick={() => setMobileOpen(false)}
-              className={`font-heading text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
+              className={cn(
+                "font-heading text-sm font-bold uppercase tracking-widest transition-colors duration-300",
                 locale === "sl"
                   ? "text-[var(--accent)]"
-                  : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
-              }`}
+                  : "text-[var(--text-secondary)] hover:text-[var(--accent)]",
+              )}
             >
               SL
             </Link>

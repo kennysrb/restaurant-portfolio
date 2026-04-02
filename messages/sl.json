@@ -1,208 +1,192 @@
 {
   "metadata": {
-    "title": "",
-    "description": "",
-    "ogTitle": "",
-    "ogDescription": "",
-    "ogSiteName": ""
+    "title": "Bistro Central Ljubljana | Moderna restavracija in vrhunska kulinarika",
+    "description": "Spletna stran moderne restavracije s poudarkom na ponudbi jedi in rezervaciji miz. Izkusite vrhunsko kulinariko v srcu Ljubljane.",
+    "ogTitle": "Bistro Central Ljubljana",
+    "ogDescription": "Moderna kulinarična izkušnja v središču Ljubljane. Sveže lokalne sestavine, sezonski meniji in nepozabno vzdušje.",
+    "ogSiteName": "Bistro Central Ljubljana"
   },
   "nav": {
-    "home": "",
-    "menu": "",
-    "about": "",
-    "gallery": "",
-    "reserve": "",
-    "location": "",
-    "ariaLabel": "",
-    "openMenu": "",
-    "closeMenu": "",
-    "logoText": ""
+    "home": "Domov",
+    "menu": "Meni",
+    "about": "O nas",
+    "gallery": "Galerija",
+    "reserve": "Rezervacija",
+    "location": "Lokacija",
+    "ariaLabel": "Glavna navigacija",
+    "openMenu": "Odpri meni",
+    "closeMenu": "Zapri meni",
+    "logoText": "Bistro Central"
   },
   "restaurant": {
-    "name": "",
-    "city": "",
-    "tagline": "",
+    "name": "Bistro Central",
+    "city": "Ljubljana",
+    "tagline": "Moderna kulinarična izkušnja v srcu Ljubljane",
     "about": {
-      "p1": "",
-      "p2": "",
-      "p3": ""
+      "p1": "Bistro Central, ki se nahaja v živahnem srcu Ljubljane, je od leta 2018 nepogrešljiv del mestne kulinarične scene. Naša kuhinja združuje tradicionalne slovenske okuse s sodobnimi evropskimi tehnikami in ustvarja jedi, ki spoštujejo našo dediščino ter hkrati sprejemajo inovacije.",
+      "p2": "Vsaka sestavina pripoveduje svojo zgodbo. Sestavine pridobivamo lokalno s slovenskih kmetij in jadranske obale, kar zagotavlja, da vsak krožnik odraža svežino in raznolikost naše regije. Naš sezonski meni se razvija z naravo in ob vsakem obisku ponuja novo izkušnjo.",
+      "p3": "Ne glede na to, ali nas obiščete zaradi intimne večerje, praznovanja ali sproščenega kosila, bodo naše toplo vzdušje in pozorna postrežba poskrbeli, da bo vsak trenutek v Bistru Central resnično nepozaben."
     }
   },
   "hero": {
-    "welcomeTo": "",
-    "imageAlt": "",
-    "reserveTable": "",
-    "viewMenu": ""
+    "welcomeTo": "Dobrodošli v",
+    "imageAlt": "Notranjost restavracije Bistro Central",
+    "reserveTable": "Rezervirajte mizo",
+    "viewMenu": "Poglej meni"
   },
   "menu": {
-    "subtitle": "",
-    "title": "",
-    "viewFullMenu": "",
-    "showAllDishes": "",
-    "showLess": "",
-    "prevPage": "",
-    "nextPage": "",
-    "goToPage": "",
-    "fullMenuImageAlt": "",
-    "closeMenuLabel": "",
+    "subtitle": "Naš izbor",
+    "title": "Meni",
+    "viewFullMenu": "Poglej celoten meni",
+    "showAllDishes": "Prikaži vseh {count} jedi",
+    "showLess": "Prikaži manj",
+    "prevPage": "Prejšnja stran menija",
+    "nextPage": "Naslednja stran menija",
+    "goToPage": "Pojdi na stran menija {page}",
+    "fullMenuImageAlt": "Celoten meni Bistro Central",
+    "closeMenuLabel": "Zapri meni",
     "items": {
       "truffleRisotto": {
-        "name": "",
-        "description": ""
+        "name": "Rižota s tartufi",
+        "description": "Kremna rižota Arborio s črnimi tartufi, zorjenim parmezanom in kapljico tartufovega olja."
       },
       "grilledSeaBass": {
-        "name": "",
-        "description": ""
+        "name": "Brancin na žaru",
+        "description": "Svež jadranski brancin s pečeno zelenjavo, kaprami in omako iz masla in limone."
       },
       "beefTenderloin": {
-        "name": "",
-        "description": ""
+        "name": "Goveji file",
+        "description": "Vrhunski goveji file z redukcijo rdečega vina, pečenim krompirjem in sezonsko zelenjavo."
       },
       "wildMushroomPasta": {
-        "name": "",
-        "description": ""
+        "name": "Testenine z divjimi gobami",
+        "description": "Ročno izdelani rezanci z mešanico divjih gob, česnom in svežimi zelišči."
       },
       "capreseSalad": {
-        "name": "",
-        "description": ""
+        "name": "Solata Caprese",
+        "description": "Paradižniki 'Heirloom', sveža bivolja mocarela, bazilika in staran balzamični obliv."
       },
       "tiramisu": {
-        "name": "",
-        "description": ""
+        "name": "Tiramisu",
+        "description": "Klasična italijanska sladica s piškoti, namočenimi v ekspres kavo, maskarponejevo kremo in kakavom."
       },
       "bruschettaTrio": {
-        "name": "",
-        "description": ""
+        "name": "Trio brusket",
+        "description": "Tri obrtniške bruskete: paradižnik in bazilika, skuta in med ter oljčna tapenada."
       },
       "pannaCotta": {
-        "name": "",
-        "description": ""
+        "name": "Panna Cotta",
+        "description": "Svilnata vanilijeva panna cotta s sezonskim jagodičevjem in minto."
       },
       "lambRack": {
-        "name": "",
-        "description": ""
+        "name": "Jagnječje zarebrnice",
+        "description": "Jagnječje zarebrnice v zeliščni skorjici z rožmarinovim sokom, krompirjevim gratinom in pečenim mladim korenjem."
       },
       "octopusCarpaccio": {
-        "name": "",
-        "description": ""
+        "name": "Hobotničin karpačo",
+        "description": "Tanko narezana jadranska hobotnica s citrusi, kaprami in mikrozelenjem."
       },
       "lobsterLinguine": {
-        "name": "",
-        "description": ""
+        "name": "Linguini z jastogom",
+        "description": "Sveži linguini z repom jastoga, češnjevim paradižnikom, česnom in omako iz belega vina."
       },
       "duckConfit": {
-        "name": "",
-        "description": ""
+        "name": "Račji konfit",
+        "description": "Počasi kuhan račji krak s hrustljavo kožico, postrežen z lečo 'du Puy' in pomarančno glazuro."
       },
       "burrataProciutto": {
-        "name": "",
-        "description": ""
+        "name": "Burrata in pršut",
+        "description": "Kremna burrata s pršutom San Daniele, rukolo in staranim balzamičnim kisom."
       },
       "searedTunaTataki": {
-        "name": "",
-        "description": ""
+        "name": "Tuna Tataki",
+        "description": "Rahlo opečen tunin file v sezamovi skorjici s ponzu omako in vloženo ingverjem."
       },
       "gnocchiAlPesto": {
-        "name": "",
-        "description": ""
+        "name": "Njoki s pestom",
+        "description": "Domači krompirjevi njoki z baziličnim pestom, pinjolami in sirom Pecorino Romano."
       },
       "chocolateFondant": {
-        "name": "",
-        "description": ""
+        "name": "Čokoladni fondant",
+        "description": "Topel čokoladni fondant s tekočo sredico, postrežen z vanilijevim sladoledom."
       },
       "slovenianStrudel": {
-        "name": "",
-        "description": ""
+        "name": "Slovenski štrudelj",
+        "description": "Tradicionalni jabolčni zavitek s cimetom, rozinami in sladkorjem v prahu."
       }
     }
   },
   "about": {
-    "subtitle": "",
-    "title": "",
-    "imageAlt": ""
+    "subtitle": "Naša zgodba",
+    "title": "O nas",
+    "imageAlt": "Notranjost Bistro Central Ljubljana"
   },
   "gallery": {
-    "subtitle": "",
-    "title": "",
-    "closeGallery": "",
-    "prevImage": "",
-    "nextImage": "",
+    "subtitle": "Vizualna izkušnja",
+    "title": "Galerija",
+    "closeGallery": "Zapri galerijo",
+    "prevImage": "Prejšnja slika",
+    "nextImage": "Naslednja slika",
     "items": {
-      "interior1": {
-        "alt": ""
-      },
-      "dish1": {
-        "alt": ""
-      },
-      "bar": {
-        "alt": ""
-      },
-      "terrace": {
-        "alt": ""
-      },
-      "dish2": {
-        "alt": ""
-      },
-      "interior2": {
-        "alt": ""
-      },
-      "dish3": {
-        "alt": ""
-      },
-      "wine": {
-        "alt": ""
-      }
+      "interior1": { "alt": "Notranjost restavracije s toplo svetlobo" },
+      "dish1": { "alt": "Lepo servirana glavna jed" },
+      "bar": { "alt": "Eleganten barski del" },
+      "terrace": { "alt": "Zunanja terasa" },
+      "dish2": { "alt": "Chef pri pripravi hišne specialitete" },
+      "interior2": { "alt": "Prostor za zasebne skupine" },
+      "dish3": { "alt": "Svež izbor sladic" },
+      "wine": { "alt": "Izbrana vinska zbirka" }
     }
   },
   "reservation": {
-    "subtitle": "",
-    "title": "",
-    "fullName": "",
-    "namePlaceholder": "",
-    "nameAriaLabel": "",
-    "phone": "",
-    "phonePlaceholder": "",
-    "phoneAriaLabel": "",
-    "date": "",
-    "dateAriaLabel": "",
-    "time": "",
-    "timeAriaLabel": "",
-    "sending": "",
-    "reserveNow": "",
-    "successToast": "",
-    "errorToast": ""
+    "subtitle": "Rezervirajte doživetje",
+    "title": "Rezervirajte mizo",
+    "fullName": "Ime in priimek",
+    "namePlaceholder": "Janez Novak",
+    "nameAriaLabel": "Vaše ime in priimek",
+    "phone": "Telefonska številka",
+    "phonePlaceholder": "01 234 5678",
+    "phoneAriaLabel": "Vaša telefonska številka",
+    "date": "Datum",
+    "dateAriaLabel": "Datum rezervacije",
+    "time": "Ura",
+    "timeAriaLabel": "Ura rezervacije",
+    "sending": "Pošiljanje...",
+    "reserveNow": "Rezerviraj zdaj",
+    "successToast": "Zahtevek za rezervacijo poslan! Kmalu vam bomo potrdili.",
+    "errorToast": "Napaka v omrežju. Prosimo, poskusite znova."
   },
   "location": {
-    "subtitle": "",
-    "title": "",
-    "mapTitle": "",
-    "mapAriaLabel": "",
-    "workingHours": "",
-    "address": "",
-    "contact": "",
-    "closed": "",
+    "subtitle": "Kje smo",
+    "title": "Lokacija in delovni čas",
+    "mapTitle": "Lokacija Bistro Central na Google Zemljevidih",
+    "mapAriaLabel": "Zemljevid z lokacijo restavracije Bistro Central",
+    "workingHours": "Delovni čas",
+    "address": "Naslov",
+    "contact": "Kontakt",
+    "closed": "Zaprto",
     "days": {
-      "monday": "",
-      "tuesdayFriday": "",
-      "saturday": "",
-      "sunday": ""
+      "monday": "Ponedeljek",
+      "tuesdayFriday": "Torek - Petek",
+      "saturday": "Sobota",
+      "sunday": "Nedelja"
     }
   },
   "footer": {
-    "contact": "",
-    "followUs": "",
-    "followInstagram": "",
-    "followFacebook": "",
-    "findTripAdvisor": "",
-    "copyright": ""
+    "contact": "Kontakt",
+    "followUs": "Sledite nam",
+    "followInstagram": "Sledite nam na Instagramu",
+    "followFacebook": "Sledite nam na Facebooku",
+    "findTripAdvisor": "Poiščite nas na TripAdvisorju",
+    "copyright": "© {year} {name} {city}. Vse pravice pridržane."
   },
   "badges": {
-    "chef": "",
-    "special": ""
+    "chef": "Chefov izbor",
+    "special": "Posebna ponudba"
   },
   "ui": {
-    "closeModal": "",
-    "reserveTable": "",
-    "scrollToTop": ""
+    "closeModal": "Zapri okno",
+    "reserveTable": "Rezervirajte mizo",
+    "scrollToTop": "Nazaj na vrh"
   }
 }

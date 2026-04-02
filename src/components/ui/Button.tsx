@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 interface ButtonProps {
   children: React.ReactNode;
   variant?: "primary" | "outline";
@@ -27,7 +29,7 @@ export function Button({
       "border-2 border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-surface-dark",
   };
 
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const classes = cn(base, variants[variant], className);
 
   if (href) {
     return (

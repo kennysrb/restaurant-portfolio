@@ -5,6 +5,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { cn } from "@/lib/utils";
 import { MenuCard } from "@/components/ui/MenuCard";
 import { DishModal } from "@/components/ui/DishModal";
 import { FullMenuModal } from "@/components/ui/FullMenuModal";
@@ -38,6 +39,7 @@ export function Menu() {
   const goToNext = () => setPage((p) => Math.min(totalPages - 1, p + 1));
   const closeModal = useCallback(() => setSelectedDish(null), []);
 
+  // NOTE: Type assertion required by next-intl for dynamic translation key lookup
   const selectedName = selectedDish ? t(`items.${selectedDish.id}.name` as "items.truffleRisotto.name") : "";
   const selectedDescription = selectedDish ? t(`items.${selectedDish.id}.description` as "items.truffleRisotto.description") : "";
 
@@ -104,7 +106,7 @@ export function Menu() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`transition-transform duration-300 ${mobileExpanded ? "rotate-180" : ""}`}
+                className={cn("transition-transform duration-300", mobileExpanded && "rotate-180")}
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
@@ -113,6 +115,7 @@ export function Menu() {
         )}
       </div>
 
+      {/* NOTE: hand-rolled pagination carousel; Embla/Swiper could handle navigation if Framer Motion is later removed */}
       {/* === Desktop: paginated grid with arrows === */}
       <div className="hidden md:block">
         <div className="relative">
@@ -173,11 +176,12 @@ export function Menu() {
               <button
                 key={i}
                 onClick={() => setPage(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                className={cn(
+                  "w-2.5 h-2.5 rounded-full transition-all duration-300",
                   i === page
                     ? "bg-[var(--accent)] w-8"
-                    : "bg-[var(--border)] hover:bg-[var(--text-secondary)]"
-                }`}
+                    : "bg-[var(--border)] hover:bg-[var(--text-secondary)]",
+                )}
                 aria-label={t("goToPage", { page: i + 1 })}
               />
             ))}

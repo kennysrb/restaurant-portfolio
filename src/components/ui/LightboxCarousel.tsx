@@ -1,5 +1,6 @@
 "use client";
 
+// NOTE: hand-rolled carousel; Embla/Swiper could handle navigation if Framer Motion is later removed
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useCallback, useRef, useState } from "react";
@@ -110,6 +111,7 @@ export function LightboxCarousel({
             </svg>
           </button>
 
+          {/* NOTE: Prev/Next button structure is duplicated below — could be extracted to an inline NavButton sub-component or components/ui/LightboxNavButton.tsx if reused elsewhere */}
           {/* Previous button */}
           <button
             onClick={(e) => { e.stopPropagation(); goPrev(); }}

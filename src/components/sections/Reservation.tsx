@@ -1,30 +1,39 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { Button } from "@/components/ui/Button";
 import { Toast } from "@/components/ui/Toast";
+import { cn } from "@/lib/utils";
+
+const reservationSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  date: z.string().min(1, "Date is required"),
+  time: z.string().min(1, "Time is required"),
+});
+
+type ReservationFormValues = z.infer<typeof reservationSchema>;
 
 export function Reservation() {
   const t = useTranslations("reservation");
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ReservationFormValues>({
+    resolver: zodResolver(reservationSchema),
+  });
 
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get("name") as string,
-      phone: formData.get("phone") as string,
-      date: formData.get("date") as string,
-      time: formData.get("time") as string,
-    };
-
+  const onSubmit = async (data: ReservationFormValues) => {
     try {
       const res = await fetch("/api/reservation", {
         method: "POST",
@@ -34,7 +43,7 @@ export function Reservation() {
 
       if (res.ok) {
         setToastMessage(t("successToast"));
-        form.reset();
+        reset();
       } else {
         const err = await res.json();
         setToastMessage(err.error || t("errorToast"));
@@ -44,7 +53,6 @@ export function Reservation() {
     }
 
     setToastVisible(true);
-    setSubmitting(false);
   };
 
   const hideToast = useCallback(() => setToastVisible(false), []);
@@ -64,7 +72,7 @@ export function Reservation() {
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
@@ -73,12 +81,14 @@ export function Reservation() {
               <input
                 type="text"
                 id="name"
-                name="name"
-                required
                 placeholder={t("namePlaceholder")}
-                className={inputClasses}
+                className={cn(inputClasses, errors.name && "border-red-500")}
                 aria-label={t("nameAriaLabel")}
+                {...register("name")}
               />
+              {errors.name && (
+                <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
+              )}
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
@@ -87,12 +97,14 @@ export function Reservation() {
               <input
                 type="tel"
                 id="phone"
-                name="phone"
-                required
                 placeholder={t("phonePlaceholder")}
-                className={inputClasses}
+                className={cn(inputClasses, errors.phone && "border-red-500")}
                 aria-label={t("phoneAriaLabel")}
+                {...register("phone")}
               />
+              {errors.phone && (
+                <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>
+              )}
             </div>
           </div>
 
@@ -104,11 +116,13 @@ export function Reservation() {
               <input
                 type="date"
                 id="date"
-                name="date"
-                required
-                className={inputClasses}
+                className={cn(inputClasses, errors.date && "border-red-500")}
                 aria-label={t("dateAriaLabel")}
+                {...register("date")}
               />
+              {errors.date && (
+                <p className="mt-1 text-xs text-red-500">{errors.date.message}</p>
+              )}
             </div>
             <div>
               <label htmlFor="time" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
@@ -117,17 +131,19 @@ export function Reservation() {
               <input
                 type="time"
                 id="time"
-                name="time"
-                required
-                className={inputClasses}
+                className={cn(inputClasses, errors.time && "border-red-500")}
                 aria-label={t("timeAriaLabel")}
+                {...register("time")}
               />
+              {errors.time && (
+                <p className="mt-1 text-xs text-red-500">{errors.time.message}</p>
+              )}
             </div>
           </div>
 
           <div className="pt-4">
             <Button type="submit" variant="primary" className="w-full">
-              {submitting ? t("sending") : t("reserveNow")}
+              {isSubmitting ? t("sending") : t("reserveNow")}
             </Button>
           </div>
         </form>

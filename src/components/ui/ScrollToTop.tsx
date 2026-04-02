@@ -1,18 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 export function ScrollToTop() {
   const t = useTranslations("ui");
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const scrollY = useScrollPosition();
+  const visible = scrollY > 400;
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
